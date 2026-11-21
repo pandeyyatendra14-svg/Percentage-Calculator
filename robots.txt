@@ -1,0 +1,17 @@
+# Quick Percentage Calculator — robots.txt
+# Last updated: 2026-11-21
+
+User-agent: *
+Allow: /
+
+# Block common admin/system paths
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /*?*sessionid=
+Disallow: /*?*phpsessid=
+
+# Block error page
+Disallow: /404.html
+
+# Sitemap location
+Sitemap: https://quickpercentagecalculator.com/sitemap.xml

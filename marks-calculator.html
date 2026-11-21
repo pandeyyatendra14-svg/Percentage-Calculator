@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Percentage Calculator - Convert Exam Marks</title>
+    <meta name="description" content="Free marks percentage calculator. Convert your exam marks into percentages instantly.">
+    <link rel="canonical" href="https://percentagecalculators.com/marks-calculator.html">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* KRISHNA STYLE (Same Base CSS) */
+        :root { --bg: #f1f5f9; --text-main: #1e293b; --text-muted: #64748b; --card-bg: #ffffff; --border: #e2e8f0; --blue-main: #2563eb; --blue-hover: #1d4ed8; --blue-light: #eff6ff; --blue-text: #1e40af; }
+        .dark { --bg: #020617; --text-main: #f1f5f9; --text-muted: #94a3b8; --card-bg: #0f172a; --border: #1e293b; --blue-light: #172554; --blue-text: #60a5fa; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', system-ui, sans-serif; }
+        body { background: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; transition: 0.3s; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; width: 100%; flex-grow: 1; }
+        .top-bar { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .home-btn { background: var(--blue-main); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 5px; font-size: 14px; }
+        .theme-btn { background: var(--card-bg); border: 1px solid var(--border); font-size: 18px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .hero { background: var(--blue-light); border: 2px solid var(--blue-main); border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; }
+        .hero h1 { color: var(--blue-text); font-size: 26px; font-weight: 700; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .input-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
+        label { font-size: 14px; font-weight: 600; }
+        input { padding: 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-main); font-size: 16px; outline: none; }
+        input:focus { border-color: var(--blue-main); }
+        #result-container { background: var(--blue-light); border: 1px solid var(--blue-main); border-radius: 12px; padding: 20px; text-align: center; display: none; margin-top: 20px; }
+        .result-label { font-size: 12px; font-weight: 700; color: var(--blue-text); text-transform: uppercase; }
+        #result-text { font-size: 32px; font-weight: 700; color: var(--blue-text); }
+        .copy-btn { background: var(--blue-main); color: white; border: none; padding: 10px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        .card h2 { color: var(--blue-text); font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+        .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        footer { text-align: center; font-size: 13px; padding: 30px; border-top: 1px solid var(--border); background: var(--card-bg); color: var(--text-muted); }
+        footer a { color: var(--text-main); text-decoration: none; font-weight: 600; margin: 0 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <a href="index.html" class="home-btn">← Home</a>
+            <button onclick="toggleTheme()" class="theme-btn" id="theme-icon">🌙</button>
+        </div>
+
+        <header class="hero">
+            <h1>Marks Percentage Calculator</h1>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <label>Marks Obtained</label>
+                <input type="number" id="p0_val1" oninput="calculate()" placeholder="e.g. 450">
+            </div>
+            <div class="input-group">
+                <label>Total Marks (Out Of)</label>
+                <input type="number" id="p0_val2" oninput="calculate()" placeholder="e.g. 500">
+            </div>
+            
+            <div id="result-container">
+                <div class="result-label">Result</div>
+                <div id="result-text">0%</div>
+                <button class="copy-btn" onclick="copyResult()">Copy Result</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>How to calculate exam percentage</h2>
+            <p>To find your exam percentage, divide the marks you obtained by the total possible marks, and then multiply by 100. For example, if you scored 450 out of 500: (450 ÷ 500) × 100 = 90%.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) { document.documentElement.classList.remove('dark'); document.getElementById('theme-icon').innerText = '🌙'; } 
+            else { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').innerText = '☀️'; }
+        }
+        function calculate() {
+            const v1 = parseFloat(document.getElementById('p0_val1').value);
+            const v2 = parseFloat(document.getElementById('p0_val2').value);
+            const res = document.getElementById('result-container');
+            if (!isNaN(v1) && !isNaN(v2) && v2 > 0) {
+                document.getElementById('result-text').innerText = ((v1 / v2) * 100).toFixed(2) + '%';
+                res.style.display = 'block';
+            } else { res.style.display = 'none'; }
+        }
+        function copyResult() {
+            navigator.clipboard.writeText(document.getElementById('result-text').innerText);
+        }
+    </script>
+</body>
+</html>

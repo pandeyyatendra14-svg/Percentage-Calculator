@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage of a Number Calculator - Find X% of Y</title>
+    <meta name="description" content="Free tool to quickly find what X percent of a number is. Calculate the percentage of any amount instantly.">
+    <link rel="canonical" href="https://quickpercentagecalculator.com/number-calculator.html">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THE KRISHNA STYLE --- */
+        :root { 
+            --bg: #f1f5f9; --text-main: #1e293b; --text-muted: #64748b; 
+            --card-bg: #ffffff; --border: #e2e8f0; 
+            --blue-main: #2563eb; --blue-hover: #1d4ed8; --blue-light: #eff6ff; --blue-text: #1e40af;
+        }
+        .dark { 
+            --bg: #020617; --text-main: #f1f5f9; --text-muted: #94a3b8; 
+            --card-bg: #0f172a; --border: #1e293b; 
+            --blue-light: #172554; --blue-text: #60a5fa;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', system-ui, -apple-system, sans-serif; }
+        
+        body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; transition: background 0.3s, color 0.3s; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; width: 100%; flex-grow: 1; }
+        
+        /* Top Bar */
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .home-btn { background: var(--blue-main); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 5px; font-size: 14px; transition: background 0.2s; }
+        .home-btn:hover { background: var(--blue-hover); }
+        .theme-btn { background: var(--card-bg); border: 1px solid var(--border); font-size: 18px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        
+        /* Hero Header */
+        .hero { background: var(--blue-light); border: 2px solid var(--blue-main); border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; box-shadow: 0 0 20px rgba(37, 99, 235, 0.15); }
+        .hero h1 { color: var(--blue-text); font-size: 26px; margin-bottom: 12px; font-weight: 700; }
+        
+        /* Cards */
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        
+        /* Inputs */
+        .input-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
+        label { font-size: 14px; font-weight: 600; color: var(--text-main); }
+        input { padding: 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-main); font-size: 16px; outline: none; transition: border 0.2s; }
+        input:focus { border-color: var(--blue-main); }
+        
+        /* Result Box */
+        #result-container { background: var(--blue-light); border: 1px solid var(--blue-main); border-radius: 12px; padding: 20px; text-align: center; display: none; margin-top: 20px; }
+        .result-label { font-size: 12px; font-weight: 700; color: var(--blue-text); text-transform: uppercase; letter-spacing: 1px; }
+        #result-text { font-size: 32px; font-weight: 700; color: var(--blue-text); margin: 5px 0; }
+        .copy-btn { background: var(--blue-main); color: white; border: none; padding: 10px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 15px; transition: background 0.2s; }
+        .copy-btn:hover { background: var(--blue-hover); }
+        
+        /* SEO Content */
+        .card h2 { color: var(--blue-text); font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+        .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        
+        /* Footer */
+        footer { text-align: center; font-size: 13px; color: var(--text-muted); padding: 30px 20px; margin-top: auto; border-top: 1px solid var(--border); background: var(--card-bg); }
+        footer a { color: var(--text-main); text-decoration: none; font-weight: 600; margin: 0 5px; }
+        footer a:hover { color: var(--blue-main); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="top-bar">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <button onclick="toggleTheme()" class="theme-btn" id="theme-icon" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
+
+        <header class="hero">
+            <!-- CHANGED THE H1 HERE -->
+            <h1>Percentage of a Number</h1>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <label>Percentage (%)</label>
+                <input type="number" id="p1_val1" oninput="calculate()" placeholder="e.g. 15">
+            </div>
+            <div class="input-group">
+                <label>Total Amount / Number</label>
+                <input type="number" id="p1_val2" oninput="calculate()" placeholder="e.g. 200">
+            </div>
+            
+            <div id="result-container">
+                <div class="result-label">Result</div>
+                <div id="result-text">0</div>
+                <button class="copy-btn" onclick="copyResult()">Copy Result</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>How to find the percentage of a number</h2>
+            <p>To find a percentage of a number, convert the percentage into a decimal by dividing it by 100, then multiply it by the number. For example, to find 15% of 200: (15 ÷ 100) × 200 = 30.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <a href="about.html">About Us</a> • 
+            <a href="blog.html">Blog</a> • 
+            <a href="privacy-policy.html">Privacy Policy</a> • 
+            <a href="terms.html">Terms & Conditions</a> • 
+            <a href="disclaimer.html">Disclaimer</a> • 
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p style="margin-top:15px;">&copy; 2026 Quick Percentage Calculator. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) { document.documentElement.classList.remove('dark'); document.getElementById('theme-icon').innerText = '🌙'; } 
+            else { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').innerText = '☀️'; }
+        }
+
+        function calculate() {
+            const v1 = parseFloat(document.getElementById('p1_val1').value); 
+            const v2 = parseFloat(document.getElementById('p1_val2').value);
+            const res = document.getElementById('result-container');
+            if (!isNaN(v1) && !isNaN(v2)) { 
+                document.getElementById('result-text').innerText = ((v1 / 100) * v2).toLocaleString(); 
+                res.style.display = 'block'; 
+            } else { 
+                res.style.display = 'none'; 
+            }
+        }
+
+        function copyResult() {
+            navigator.clipboard.writeText(document.getElementById('result-text').innerText);
+        }
+    </script>
+</body>
+</html>
