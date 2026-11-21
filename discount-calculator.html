@@ -6,6 +6,15 @@
     <title>Discount Calculator - Calculate Sale Price & Savings</title>
     <meta name="description" content="Free online discount calculator. Find final sale price and total savings in your local currency.">
     <link rel="canonical" href="https://quickpercentagecalculator.com/discount-calculator.html">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P4355G9P');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,32 +51,15 @@
             <a href="index.html" class="home-btn">← Home</a>
             <button onclick="toggleTheme()" class="theme-btn" id="theme-icon">🌙</button>
         </div>
-        <header class="hero">
-            <h1>Discount Calculator</h1>
-        </header>
+        <header class="hero"><h1>Discount Calculator</h1></header>
         <div class="card">
-            <div class="input-group">
-                <label>Original Price (<span id="currency-label">₹</span>)</label>
-                <input type="number" id="p2_price" oninput="calculate()" placeholder="e.g. 1000">
-            </div>
-            <div class="input-group">
-                <label>Discount (% Off)</label>
-                <input type="number" id="p2_discount" oninput="calculate()" placeholder="e.g. 20">
-            </div>
-            <div id="result-container">
-                <div class="result-label">Final Price</div>
-                <div id="result-text">0</div>
-                <button class="copy-btn" onclick="copyResult()">Copy Result</button>
-            </div>
+            <div class="input-group"><label>Original Price (<span id="currency-label">₹</span>)</label><input type="number" id="p2_price" oninput="calculate()" placeholder="e.g. 1000"></div>
+            <div class="input-group"><label>Discount (% Off)</label><input type="number" id="p2_discount" oninput="calculate()" placeholder="e.g. 20"></div>
+            <div id="result-container"><div class="result-label">Final Price</div><div id="result-text">0</div><button class="copy-btn" onclick="copyResult()">Copy Result</button></div>
         </div>
-        <div class="card">
-            <h2>How to calculate discounts</h2>
-            <p>Multiply the original price by the discount percentage, and divide by 100 to find the savings. Subtract the savings from the original price to get the final sale price.</p>
-        </div>
+        <div class="card"><h2>How to calculate discounts</h2><p>Multiply the original price by the discount percentage, and divide by 100 to find the savings. Subtract the savings from the original price.</p></div>
     </div>
-    <footer>
-        <div><a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></div>
-    </footer>
+    <footer><div><a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></div></footer>
     <script>
         let userCurrencySymbol = '₹';
         function detectUserCurrency() {
@@ -83,12 +75,8 @@
         detectUserCurrency();
         function toggleTheme() { const isDark = document.documentElement.classList.contains('dark'); if (isDark) { document.documentElement.classList.remove('dark'); document.getElementById('theme-icon').innerText = '🌙'; } else { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').innerText = '☀️'; } }
         function calculate() {
-            const price = parseFloat(document.getElementById('p2_price').value); const discount = parseFloat(document.getElementById('p2_discount').value);
-            const res = document.getElementById('result-container');
-            if (!isNaN(price) && !isNaN(discount)) {
-                const savings = (price * discount) / 100; const finalPrice = price - savings;
-                document.getElementById('result-text').innerText = userCurrencySymbol + finalPrice.toFixed(2); res.style.display = 'block';
-            } else { res.style.display = 'none'; }
+            const price = parseFloat(document.getElementById('p2_price').value); const discount = parseFloat(document.getElementById('p2_discount').value); const res = document.getElementById('result-container');
+            if (!isNaN(price) && !isNaN(discount)) { const savings = (price * discount) / 100; const finalPrice = price - savings; document.getElementById('result-text').innerText = userCurrencySymbol + finalPrice.toFixed(2); res.style.display = 'block'; } else { res.style.display = 'none'; }
         }
         function copyResult() { navigator.clipboard.writeText(document.getElementById('result-text').innerText); }
     </script>

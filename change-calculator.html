@@ -6,6 +6,15 @@
     <title>Percentage Change Calculator - Increase & Decrease</title>
     <meta name="description" content="Calculate percentage increase or decrease between two values.">
     <link rel="canonical" href="https://quickpercentagecalculator.com/change-calculator.html">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P4355G9P');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,41 +51,20 @@
             <a href="index.html" class="home-btn">← Home</a>
             <button onclick="toggleTheme()" class="theme-btn" id="theme-icon">🌙</button>
         </div>
-        <header class="hero">
-            <h1>Percentage Change</h1>
-        </header>
+        <header class="hero"><h1>Percentage Change</h1></header>
         <div class="card">
-            <div class="input-group">
-                <label>Original / Initial Value</label>
-                <input type="number" id="p3_val1" oninput="calculate()" placeholder="e.g. 100">
-            </div>
-            <div class="input-group">
-                <label>New / Final Value</label>
-                <input type="number" id="p3_val2" oninput="calculate()" placeholder="e.g. 118">
-            </div>
-            <div id="result-container">
-                <div class="result-label">Result</div>
-                <div id="result-text">0%</div>
-                <button class="copy-btn" onclick="copyResult()">Copy Result</button>
-            </div>
+            <div class="input-group"><label>Original / Initial Value</label><input type="number" id="p3_val1" oninput="calculate()" placeholder="e.g. 100"></div>
+            <div class="input-group"><label>New / Final Value</label><input type="number" id="p3_val2" oninput="calculate()" placeholder="e.g. 118"></div>
+            <div id="result-container"><div class="result-label">Result</div><div id="result-text">0%</div><button class="copy-btn" onclick="copyResult()">Copy Result</button></div>
         </div>
-        <div class="card">
-            <h2>How to calculate percentage change</h2>
-            <p>Subtract the initial value from the final value to find the difference. Then, divide that difference by the initial value and multiply by 100 to get the percentage increase or decrease.</p>
-        </div>
+        <div class="card"><h2>How to calculate percentage change</h2><p>Subtract the initial value from the final value to find the difference. Then, divide that difference by the initial value and multiply by 100.</p></div>
     </div>
-    <footer>
-        <div><a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></div>
-    </footer>
+    <footer><div><a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></div></footer>
     <script>
         function toggleTheme() { const isDark = document.documentElement.classList.contains('dark'); if (isDark) { document.documentElement.classList.remove('dark'); document.getElementById('theme-icon').innerText = '🌙'; } else { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').innerText = '☀️'; } }
         function calculate() {
-            const initial = parseFloat(document.getElementById('p3_val1').value); const finalVal = parseFloat(document.getElementById('p3_val2').value);
-            const res = document.getElementById('result-container');
-            if (!isNaN(initial) && !isNaN(finalVal) && initial !== 0) {
-                const diff = finalVal - initial; const pct = (diff / Math.abs(initial)) * 100; const type = pct >= 0 ? "Increase" : "Decrease";
-                document.getElementById('result-text').innerText = Math.abs(pct).toFixed(2) + '% ' + type; res.style.display = 'block';
-            } else { res.style.display = 'none'; }
+            const initial = parseFloat(document.getElementById('p3_val1').value); const finalVal = parseFloat(document.getElementById('p3_val2').value); const res = document.getElementById('result-container');
+            if (!isNaN(initial) && !isNaN(finalVal) && initial !== 0) { const diff = finalVal - initial; const pct = (diff / Math.abs(initial)) * 100; const type = pct >= 0 ? "Increase" : "Decrease"; document.getElementById('result-text').innerText = Math.abs(pct).toFixed(2) + '% ' + type; res.style.display = 'block'; } else { res.style.display = 'none'; }
         }
         function copyResult() { navigator.clipboard.writeText(document.getElementById('result-text').innerText); }
     </script>

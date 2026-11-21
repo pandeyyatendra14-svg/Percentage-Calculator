@@ -7,14 +7,18 @@
     <meta name="description" content="Free online percentage calculators. Choose from Marks, Discounts, Averages, Percentage Change, and more.">
     <link rel="canonical" href="https://quickpercentagecalculator.com/">
     
-    <!-- YOUR NEW CUSTOM FAVICON -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P4355G9P');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
         /* --- THE KRISHNA STYLE --- */
         :root { 
@@ -27,125 +31,51 @@
             --card-bg: #0f172a; --border: #1e293b; 
             --blue-light: #172554; --blue-text: #60a5fa;
         }
-        
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', system-ui, -apple-system, sans-serif; }
-        
         body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; transition: background 0.3s, color 0.3s; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; width: 100%; flex-grow: 1; }
-        
-        /* Top Bar */
         .top-bar { display: flex; justify-content: flex-end; margin-bottom: 10px; }
         .theme-btn { background: var(--card-bg); border: 1px solid var(--border); font-size: 18px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        
-        /* Hero Header */
         .hero { background: var(--blue-light); border: 2px solid var(--blue-main); border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; box-shadow: 0 0 20px rgba(37, 99, 235, 0.15); }
         .hero h1 { color: var(--blue-text); font-size: 26px; margin-bottom: 12px; font-weight: 700; }
         .hero p { font-size: 15px; line-height: 1.6; color: #334155; font-weight: 500; }
         .hero p strong { font-weight: 800; color: #0f172a; }
         .dark .hero p { color: #cbd5e1; }
         .dark .hero p strong { color: #ffffff; }
-
-        /* Grid for Calculator Cards */
         .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 20px; }
-        
-        .calc-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 20px;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .calc-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--blue-main);
-            box-shadow: 0 8px 15px rgba(37, 99, 235, 0.15);
-        }
-        
+        .calc-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-decoration: none; color: inherit; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+        .calc-card:hover { transform: translateY(-3px); border-color: var(--blue-main); box-shadow: 0 8px 15px rgba(37, 99, 235, 0.15); }
         .calc-icon { font-size: 28px; margin-bottom: 10px; }
         .calc-card h2 { color: var(--blue-text); font-size: 18px; margin-bottom: 6px; font-weight: 700; }
         .calc-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-
-        /* Footer */
         footer { text-align: center; font-size: 13px; color: var(--text-muted); padding: 30px 20px; margin-top: auto; border-top: 1px solid var(--border); background: var(--card-bg); }
         footer a { color: var(--text-main); text-decoration: none; font-weight: 600; margin: 0 5px; }
         footer a:hover { color: var(--blue-main); }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="top-bar">
             <button onclick="toggleTheme()" class="theme-btn" id="theme-icon" aria-label="Toggle Dark Mode">🌙</button>
         </div>
-
         <header class="hero">
             <h1>Percentage Calculators</h1>
             <p>Learn <strong>how to calculate percentage</strong>, find <strong>percentage of a number</strong>, or track <strong>percentage increase</strong>. Choose a calculator below to get started!</p>
         </header>
-
         <div class="grid">
-            <a href="marks-calculator.html" class="calc-card">
-                <div class="calc-icon">🎓</div>
-                <h2>Marks & Score Calculator</h2>
-                <p>Convert exam marks into percentages instantly.</p>
-            </a>
-
-            <a href="number-calculator.html" class="calc-card">
-                <div class="calc-icon">🔢</div>
-                <!-- UPDATED TEXT HERE -->
-                <h2>Percentage of a Number</h2>
-                <p>Quickly find X% of any amount.</p>
-            </a>
-
-            <a href="discount-calculator.html" class="calc-card">
-                <div class="calc-icon">🏷️</div>
-                <h2>Discount Calculator</h2>
-                <p>See your final sale price and savings.</p>
-            </a>
-
-            <a href="change-calculator.html" class="calc-card">
-                <div class="calc-icon">📈</div>
-                <h2>Percentage Change</h2>
-                <p>Measure increases and decreases between values.</p>
-            </a>
-
-            <a href="average-calculator.html" class="calc-card">
-                <div class="calc-icon">⚖️</div>
-                <h2>Average Calculator</h2>
-                <p>Compute the mean of any list of numbers.</p>
-            </a>
+            <a href="marks-calculator.html" class="calc-card"><div class="calc-icon">🎓</div><h2>Marks & Score Calculator</h2><p>Convert exam marks into percentages instantly.</p></a>
+            <a href="number-calculator.html" class="calc-card"><div class="calc-icon">🔢</div><h2>Percentage of a Number</h2><p>Quickly find X% of any amount.</p></a>
+            <a href="discount-calculator.html" class="calc-card"><div class="calc-icon">🏷️</div><h2>Discount Calculator</h2><p>See your final sale price and savings.</p></a>
+            <a href="change-calculator.html" class="calc-card"><div class="calc-icon">📈</div><h2>Percentage Change</h2><p>Measure increases and decreases between values.</p></a>
+            <a href="average-calculator.html" class="calc-card"><div class="calc-icon">⚖️</div><h2>Average Calculator</h2><p>Compute the mean of any list of numbers.</p></a>
         </div>
     </div>
-
     <footer>
-        <div>
-            <a href="about.html">About Us</a> • 
-            <a href="blog.html">Blog</a> • 
-            <a href="privacy-policy.html">Privacy Policy</a> • 
-            <a href="terms.html">Terms & Conditions</a> • 
-            <a href="disclaimer.html">Disclaimer</a> • 
-            <a href="contact.html">Contact Us</a>
-        </div>
+        <div><a href="about.html">About Us</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy Policy</a> • <a href="terms.html">Terms & Conditions</a> • <a href="disclaimer.html">Disclaimer</a> • <a href="contact.html">Contact Us</a></div>
         <p style="margin-top:15px;">&copy; 2026 Quick Percentage Calculator. All rights reserved.</p>
     </footer>
-
     <script>
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.contains('dark');
-            if (isDark) {
-                document.documentElement.classList.remove('dark');
-                document.getElementById('theme-icon').innerText = '🌙';
-            } else {
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-icon').innerText = '☀️';
-            }
-        }
+        function toggleTheme() { const isDark = document.documentElement.classList.contains('dark'); if (isDark) { document.documentElement.classList.remove('dark'); document.getElementById('theme-icon').innerText = '🌙'; } else { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').innerText = '☀️'; } }
     </script>
 </body>
 </html>

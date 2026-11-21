@@ -6,6 +6,15 @@
     <title>Average Calculator - Find the Mean of Numbers</title>
     <meta name="description" content="Free average calculator. Enter a list of numbers to find the arithmetic mean.">
     <link rel="canonical" href="https://quickpercentagecalculator.com/average-calculator.html">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P4355G9P');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,28 +51,14 @@
             <a href="index.html" class="home-btn">← Home</a>
             <button onclick="toggleTheme()" class="theme-btn" id="theme-icon">🌙</button>
         </div>
-        <header class="hero">
-            <h1>Average Calculator</h1>
-        </header>
+        <header class="hero"><h1>Average Calculator</h1></header>
         <div class="card">
-            <div class="input-group">
-                <label>Enter Numbers (separated by commas or spaces)</label>
-                <input type="text" id="p4_numbers" oninput="calculate()" placeholder="e.g. 10, 20, 30, 40, 50">
-            </div>
-            <div id="result-container">
-                <div class="result-label">Average (Mean)</div>
-                <div id="result-text">0</div>
-                <button class="copy-btn" onclick="copyResult()">Copy Result</button>
-            </div>
+            <div class="input-group"><label>Enter Numbers (separated by commas or spaces)</label><input type="text" id="p4_numbers" oninput="calculate()" placeholder="e.g. 10, 20, 30, 40, 50"></div>
+            <div id="result-container"><div class="result-label">Average (Mean)</div><div id="result-text">0</div><button class="copy-btn" onclick="copyResult()">Copy Result</button></div>
         </div>
-        <div class="card">
-            <h2>How to calculate an average</h2>
-            <p>To find the average (arithmetic mean), sum up all the numbers in your list, and then divide that total by the count of how many numbers you added together.</p>
-        </div>
+        <div class="card"><h2>How to calculate an average</h2><p>To find the average (arithmetic mean), sum up all the numbers in your list, and then divide that total by the count of how many numbers you added together.</p></div>
     </div>
-    <footer>
-        <div><a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></div>
-    </footer>
+    <footer><div><a href="about.html">About</a> • <a href="blog.html">Blog</a> • <a href="privacy-policy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></div></footer>
     <script>
         function toggleTheme() { const isDark = document.documentElement.classList.contains('dark'); if (isDark) { document.documentElement.classList.remove('dark'); document.getElementById('theme-icon').innerText = '🌙'; } else { document.documentElement.classList.add('dark'); document.getElementById('theme-icon').innerText = '☀️'; } }
         function calculate() {
