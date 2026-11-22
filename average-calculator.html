@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Average Calculator - Find the Mean of Numbers</title>
-    <meta name="description" content="Free average calculator. Enter a list of numbers to find the arithmetic mean.">
+    <title>Average Calculator - Calculate Average Marks & Numbers</title>
+    <meta name="description" content="Free average calculator. Find the mean of test scores, marks, and numbers instantly. Perfect for students and teachers.">
     <link rel="canonical" href="https://quickpercentagecalculator.com/average-calculator.html">
     
     <!-- Google Tag Manager -->
@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root { --bg: #f1f5f9; --text-main: #1e293b; --text-muted: #64748b; --card-bg: #ffffff; --border: #e2e8f0; --blue-main: #2563eb; --blue-hover: #1d4ed8; --blue-light: #eff6ff; --blue-text: #1e40af; }
         .dark { --bg: #020617; --text-main: #f1f5f9; --text-muted: #94a3b8; --card-bg: #0f172a; --border: #1e293b; --blue-light: #172554; --blue-text: #60a5fa; }
@@ -28,8 +29,14 @@
         .top-bar { display: flex; justify-content: space-between; margin-bottom: 20px; }
         .home-btn { background: var(--blue-main); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 5px; font-size: 14px; }
         .theme-btn { background: var(--card-bg); border: 1px solid var(--border); font-size: 18px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        
         .hero { background: var(--blue-light); border: 2px solid var(--blue-main); border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; }
-        .hero h1 { color: var(--blue-text); font-size: 26px; font-weight: 700; }
+        .hero h1 { color: var(--blue-text); font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+        .hero p { font-size: 15px; line-height: 1.6; color: #334155; font-weight: 500; }
+        .hero p strong { font-weight: 800; color: #0f172a; }
+        .dark .hero p { color: #cbd5e1; }
+        .dark .hero p strong { color: #ffffff; }
+        
         .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .input-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
         label { font-size: 14px; font-weight: 600; }
@@ -51,7 +58,10 @@
             <a href="index.html" class="home-btn">← Home</a>
             <button onclick="toggleTheme()" class="theme-btn" id="theme-icon">🌙</button>
         </div>
-        <header class="hero"><h1>Average Calculator</h1></header>
+        <header class="hero">
+            <h1>Average Calculator</h1>
+            <p>Learn <strong>how to calculate average marks</strong>, <strong>test scores</strong>, and <strong>numbers</strong> instantly. Our <strong>class average calculator</strong> makes it easy to find the mean of any list of values. Just enter your numbers to get the exact average.</p>
+        </header>
         <div class="card">
             <div class="input-group"><label>Enter Numbers (separated by commas or spaces)</label><input type="text" id="p4_numbers" oninput="calculate()" placeholder="e.g. 10, 20, 30, 40, 50"></div>
             <div id="result-container"><div class="result-label">Average (Mean)</div><div id="result-text">0</div><button class="copy-btn" onclick="copyResult()">Copy Result</button></div>
